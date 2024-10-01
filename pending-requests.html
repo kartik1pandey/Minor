@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pending Requests</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles for the page */
+        body {
+            background-color: #f4f4f5;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="bg-blue-600 p-4 shadow-lg flex justify-between items-center">
+        <!-- Logo -->
+        <div class="text-white text-2xl font-bold">Admin Panel</div>
+
+        <!-- Navbar Links -->
+        <div class="hidden md:flex space-x-8 text-white">
+            <a href="./dashboard.html" class="hover:text-gray-300">Dashboard</a>
+            <a href="#users" class="hover:text-gray-300">Users</a>
+            <a href="pending-requests.html" class="hover:text-gray-300">Reports</a>
+            <a href="index.html" class="hover:text-gray-300">Logout</a>
+
+        </div>
+
+        <!-- Profile Dropdown -->
+        <div class="relative">
+            <button class="flex items-center text-white focus:outline-none">
+                <img class="w-10 h-10 rounded-full mr-2" src="./images/rk.jpeg" alt="Profile Picture">
+            
+            <!-- Dropdown Menu -->
+            <div class="absolute right-0 mt-2 w-48 bg-white text-gray-700 rounded-md shadow-lg hidden group-hover:block">
+                <a href="#profile" class="block px-4 py-2 hover:bg-gray-100">Profile</a>
+                <a href="#settings" class="block px-4 py-2 hover:bg-gray-100">Settings</a>
+                <a href="#logout" class="block px-4 py-2 hover:bg-gray-100">Logout</a>
+            </div>
+        </button>
+        </div>
+    </nav>
+
+    <!-- Pending Requests Section -->
+    <div class="max-w-6xl mx-auto p-6">
+        <h2 class="text-2xl font-bold mb-6">Pending Requests</h2>
+
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+            <table class="min-w-full">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="py-2 px-4 text-left">Request ID</th>
+                        <th class="py-2 px-4 text-left">User</th>
+                        <th class="py-2 px-4 text-left">Status</th>
+                        <th class="py-2 px-4 text-left">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="requestTable">
+                    <!-- Example Pending Requests -->
+                    <tr class="border-b request-row">
+                        <td class="py-2 px-4">#001</td>
+                        <td class="py-2 px-4">Srinivasa K G</td>
+                        <td class="py-2 px-4 text-yellow-500 status">Pending</td>
+                        <td class="py-2 px-4">
+                            <button class="approve-btn bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600">Approve</button>
+                            <button class="reject-btn bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">Reject</button>
+                        </td>
+                    </tr>
+                    <tr class="border-b request-row">
+                        <td class="py-2 px-4">#002</td>
+                        <td class="py-2 px-4">Satyanarayana Vollala</td>
+                        <td class="py-2 px-4 text-yellow-500 status">Pending</td>
+                        <td class="py-2 px-4">
+                            <button class="approve-btn bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600">Approve</button>
+                            <button class="reject-btn bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">Reject</button>
+                        </td>
+                    </tr>
+                    <!-- Add more requests as needed -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer class="text-center p-4 text-gray-600">
+        &copy; 2024 Admin Dashboard - All Rights Reserved
+    </footer>
+
+    <script>
+        // Event listeners for approve and reject buttons
+        document.querySelectorAll('.approve-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const row = button.closest('.request-row');
+                const statusCell = row.querySelector('.status');
+                statusCell.textContent = 'Approved';
+                statusCell.classList.remove('text-yellow-500');
+                statusCell.classList.add('text-green-500');
+            });
+        });
+
+        document.querySelectorAll('.reject-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const row = button.closest('.request-row');
+                const statusCell = row.querySelector('.status');
+                statusCell.textContent = 'Rejected';
+                statusCell.classList.remove('text-yellow-500');
+                statusCell.classList.add('text-red-500');
+            });
+        });
+
+        // Toggle profile menu
+        document.querySelector('.profile-btn')?.addEventListener('click', function () {
+            document.querySelector('.profile-menu')?.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>

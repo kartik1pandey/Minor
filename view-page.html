@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Members</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <style>
+        /* Custom styles for the page */
+        body {
+            background-color: #f4f4f5;
+        }
+
+        .faculty-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem; /* Space between cards */
+            max-width: 800px; /* Max width for the card */
+            margin-left: auto; /* Center the card horizontally */
+            margin-right: auto; /* Center the card horizontally */
+        }
+
+        .faculty-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .readMoreRow a {
+            background-color: #3b82f6; /* Tailwind Blue-500 */
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .readMoreRow a:hover {
+            background-color: #2563eb; /* Tailwind Blue-600 */
+        }
+
+        /* For the images */
+        .faculty-card img {
+            width: 150px; /* Fixed width for the image */
+            height: auto; /* Auto height to maintain aspect ratio */
+            border-radius: 0.5rem; /* Rounded corners for the image */
+        }
+
+        /* Adjustments for text when image is on right */
+        .text-content {
+            padding: 1rem;
+            flex: 1; /* Allow the text content to take available space */
+            display: flex;
+            flex-direction: column; /* Ensure the text content stacks vertically */
+            justify-content: space-between; /* Space out the text */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="bg-blue-600 p-4 shadow-lg flex justify-between items-center">
+        <!-- Logo -->
+        <div class="text-white text-lg font-bold">IIIT Naya Raipur - Faculty Directory</div>
+
+        <!-- Navbar Links -->
+        <div class="hidden md:flex space-x-8 text-white">
+            <a href="index.html" class="hover:text-gray-300">Home</a>
+            <a href="#about" class="hover:text-gray-300">About</a>
+            <a href="#faculty" class="hover:text-gray-300">Faculty</a>
+            <a href="#contact" class="hover:text-gray-300">Contact</a>
+        </div>
+
+        <!-- Profile Dropdown -->
+        <div class="relative">
+            <button class="flex items-center text-white focus:outline-none">
+                <img class="w-10 h-10 rounded-full mr-2" src="./images/download.png" alt="Profile Picture">
+                <div class="absolute right-0 mt-2 w-48 bg-white text-gray-700 rounded-md shadow-lg hidden group-hover:block">
+                    <a href="#profile" class="block px-4 py-2 hover:bg-gray-100">Profile</a>
+                    <a href="#settings" class="block px-4 py-2 hover:bg-gray-100">Settings</a>
+                    <a href="#logout" class="block px-4 py-2 hover:bg-gray-100">Logout</a>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="content">
+        <div class="max-w-6xl mx-auto p-6">
+            <h2 class="text-3xl font-bold mb-6">Faculty Members</h2>
+            <div class="grid grid-cols-1 gap-6">
+
+                <!-- Faculty Member 1 -->
+                <div class="faculty-card bg-white rounded-lg">
+                    <img alt="Sresha Yadav" src="https://www.iiitnr.ac.in/sites/default/files/faculty_photo/sresha.jpg"
+                        title="Sresha Yadav">
+                    <div class="text-content">
+                        <h3 class="text-xl font-semibold">
+                            <a href="https://www.iiitnr.ac.in/node/1242" class="text-blue-500 hover:underline">Sresha Yadav</a>
+                            <span>(ASSISTANT PROFESSOR, ENGLISH)</span>
+                        </h3>
+                        <div>
+                            <p><strong>Qualification :</strong> Ph. D (IIT-Roorkee)</p>
+                            <p><strong>Department :</strong> SHM</p>
+                            <p><strong>Email Id :</strong> sresha[at]iiitnr.edu.in</p>
+                            <p><strong>Contact No :</strong> 91-771-2474052</p>
+                            <p><strong>Research :</strong> ELT, Cognitive Psychology and Criticism, Medical Humanities</p>
+                        </div>
+                        <div class="readMoreRow mt-4">
+                            <a href="https://www.iiitnr.ac.in/node/1242">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faculty Member 2 -->
+                <div class="faculty-card bg-white rounded-lg flex flex-row-reverse">
+                    <img alt="Srinivasa K G" src="https://www.iiitnr.ac.in/sites/default/files/faculty_photo/KGS-Picture.jpg"
+                        title="Srinivasa K G">
+                    <div class="text-content">
+                        <h3 class="text-xl font-semibold">
+                            <a href="https://www.iiitnr.ac.in/node/3003" class="text-blue-500 hover:underline">Srinivasa K G</a>
+                            <span>(Professor, Dean(Academics), & HOD DSAI)</span>
+                        </h3>
+                        <div>
+                            <p><strong>Qualification :</strong> Ph.D (Bangalore University)</p>
+                            <p><strong>Department :</strong> DSAI</p>
+                            <p><strong>Email Id :</strong> srinivasa[at]iiitnr.edu.in</p>
+                            <p><strong>Contact No :</strong> 91-771-2474063</p>
+                            <p><strong>Research :</strong> Data Mining, Cloud Computing, IoT, Data Analytics, Cyber Physical Systems, AR & VR, Learning Analytics, Digital Pedagogy</p>
+                        </div>
+                        <div class="readMoreRow mt-4">
+                            <a href="https://www.iiitnr.ac.in/node/3003">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faculty Member 3 -->
+                <div class="faculty-card bg-white rounded-lg">
+                    <img alt="Vijaya J" src="https://www.iiitnr.ac.in/sites/default/files/faculty_photo/fac1.jpg"
+                        title="Vijaya J">
+                    <div class="text-content">
+                        <h3 class="text-xl font-semibold">
+                            <a href="https://www.iiitnr.ac.in/node/3043" class="text-blue-500 hover:underline">Vijaya J</a>
+                            <span>(ASSISTANT PROFESSOR, DSAI)</span>
+                        </h3>
+                        <div>
+                            <p><strong>Qualification :</strong> Ph.D (NIT-Trichy)</p>
+                            <p><strong>Department :</strong> DSAI</p>
+                            <p><strong>Email Id :</strong> vijaya[at]iiitnr.edu.in</p>
+                            <p><strong>Contact No :</strong> 91-7708764280</p>
+                            <p><strong>Research :</strong> Data Science, Data Analytics, Data Mining, Machine Learning, Soft Computing, Optimization Techniques, Deep Learning, Big Data.</p>
+                        </div>
+                        <div class="readMoreRow mt-4">
+                            <a href="https://www.iiitnr.ac.in/node/3043">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faculty Member 4 -->
+                <div class="faculty-card bg-white rounded-lg flex flex-row-reverse">
+                    <img alt="Vinay Kumar" src="https://www.iiitnr.ac.in/sites/default/files/faculty_photo/vkj.jpg"
+                        title="Vinay Kumar">
+                    <div class="text-content">
+                        <h3 class="text-xl font-semibold">
+                            <a href="https://www.iiitnr.ac.in/node/3301" class="text-blue-500 hover:underline">Vinay Kumar</a>
+                            <span>(ASSISTANT PROFESSOR, DSAI)</span>
+                        </h3>
+                        <div>
+                            <p><strong>Qualification :</strong> M. Tech (NIT, Raipur)</p>
+                            <p><strong>Department :</strong> DSAI</p>
+                            <p><strong>Email Id :</strong> vinay[at]iiitnr.edu.in</p>
+                            <p><strong>Contact No :</strong> 91-771-2474066</p>
+                            <p><strong>Research :</strong> NLP, Deep Learning, Computer Vision.</p>
+                        </div>
+                        <div class="readMoreRow mt-4">
+                            <a href="https://www.iiitnr.ac.in/node/3301">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faculty Member 5 -->
+                <div class="faculty-card bg-white rounded-lg ">
+                    <img alt="Amit Kumar Sinha" src="./images/Amit_Jpeg.jpg"
+                        title="Amit Kumar Sinha">
+                    <div class="text-content">
+                        <h3 class="text-xl font-semibold">
+                            <a href="https://www.iiitnr.ac.in/node/3341" class="text-blue-500 hover:underline">Amit Kumar Sinha</a>
+                            <span>(ASSISTANT PROFESSOR, CSE)</span>
+                        </h3>
+                        <div>
+                            <p><strong>Qualification :</strong> Ph.D (IIT Kharagpur)</p>
+                            <p><strong>Department :</strong> CSE</p>
+                            <p><strong>Email Id :</strong> amit[at]iiitnr.edu.in</p>
+                            <p><strong>Contact No :</strong> 91-771-2474055</p>
+                            <p><strong>Research :</strong> Deep Learning, Computer Vision, Reinforcement Learning, Self-Supervised Learning.</p>
+                        </div>
+                        <div class="readMoreRow mt-4">
+                            <a href="https://www.iiitnr.ac.in/node/3341">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faculty Member 6 -->
+                <div class="faculty-card bg-white rounded-lg flex flex-row-reverse">
+                    <img alt="Uday Kumar" src="./images/bipin.jpg"
+                        title="Uday Kumar">
+                    <div class="text-content">
+                        <h3 class="text-xl font-semibold">
+                            <a href="https://www.iiitnr.ac.in/node/3321" class="text-blue-500 hover:underline">Uday Kumar</a>
+                            <span>(ASSISTANT PROFESSOR, CSE)</span>
+                        </h3>
+                        <div>
+                            <p><strong>Qualification :</strong> Ph.D (NIT Raipur)</p>
+                            <p><strong>Department :</strong> CSE</p>
+                            <p><strong>Email Id :</strong> uday[at]iiitnr.edu.in</p>
+                            <p><strong>Contact No :</strong> 91-771-2474059</p>
+                            <p><strong>Research :</strong> Cloud Computing, Security, Network Security, Data Mining.</p>
+                        </div>
+                        <div class="readMoreRow mt-4">
+                            <a href="https://www.iiitnr.ac.in/node/3321">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-blue-600 text-white p-4 text-center mt-6">
+        <p>&copy; 2024 IIIT Naya Raipur. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>

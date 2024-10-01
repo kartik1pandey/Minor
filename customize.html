@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customizable Page with Image</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 80%;
+            max-width: 1200px;
+        }
+
+        .side-panel {
+            background: #4A90E2;
+            color: #fff;
+            padding: 20px;
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+        .side-panel h3 {
+            margin-top: 0;
+        }
+
+        .side-panel label {
+            margin-top: 10px;
+        }
+
+        .side-panel input[type="color"],
+        .side-panel textarea,
+        .side-panel button {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .side-panel input[type="file"] {
+            margin-top: 10px;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .main {
+            flex-grow: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        .facultyResearch {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .facultyResearch h5 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .facultyResearch ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .facultyResearch li {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .facultyMain {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        #display-photo {
+            max-width: 300px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .edit-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .edit-button:hover {
+            background-color: #45a049;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .side-panel {
+                width: 100%;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 10px;
+            }
+
+            .main {
+                width: 100%;
+                padding: 20px;
+            }
+        }
+
+        #contentwrapper {
+            background-color: #e0f7fa;
+            color: #004d40;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Side Panel for Options -->
+        <div class="side-panel">
+            <h3>Customize Page</h3>
+            <label for="bg-color">Select Background Color:</label>
+            <input type="color" id="bg-color" value="#ffffff">
+
+            <label for="text-color">Select Text Color:</label>
+            <input type="color" id="text-color" value="#000000">
+
+            <label for="content-select">Select Section to Edit:</label>
+            <select id="content-select">
+                <option value="research1">Information</option>
+                <option value="research2">Brief Profile</option>
+                <option value="research3">Research Interests</option>
+            </select>
+
+            <label for="content-text">Change Content:</label>
+            <textarea id="content-text" rows="4" cols="30">Hello! Customize this text.</textarea>
+
+            <label for="upload-photo">Upload New Photo:</label>
+            <input type="file" id="upload-photo" accept="image/*">
+
+            <button id="remove-photo">Remove Photo</button>
+            <button id="save-button" class="edit-button">Save Changes</button>
+        </div>
+
+        <div id="contentwrapper" class="main">
+            <div class="facultyMain">
+                <img id="display-photo" src="" alt="Upload a photo" style="display: none;">
+                <div class="facultyResearch" id="research1">
+                    <p><strong>Designation:</strong> (Professor, Dean(Academics), & HOD DSAI)</p>
+                    <p><strong>Qualification:</strong> Ph.D (Bangalore University)</p>
+                    <p><strong>Department:</strong> DSAI</p>
+                    <p><strong>Email Id:</strong> srinivasa[at]iiitnr.edu.in</p>
+                    <p><strong>Contact No:</strong> 91-771-2474063</p>
+                </div>
+                <div class="facultyResearch" id="research2">
+                    <h5>Brief Profile :</h5>
+                    <p>Dr. Srinivasa K G is a Professor of Data Science and Artificial Intelligence Programme at DSPM
+                        IIIT-Naya Raipur, C.&nbsp;G.&nbsp;India...</p>
+                </div>
+                <div class="facultyResearch" id="research3">
+                    <h5>Research Interests :</h5>
+                    <ul>
+                        <li>Data Science and Big Data</li>
+                        <li>Artificial Intelligence</li>
+                        <li>Cloud Computing</li>
+                        <li>Soft Computing Techniques</li>
+                        <li>Image Processing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const contentSelect = document.getElementById('content-select');
+        const contentTextInput = document.getElementById('content-text');
+        const saveButton = document.getElementById('save-button');
+
+        // Function to display the content of the selected section
+        const updateContentField = () => {
+            const selectedSection = document.getElementById(contentSelect.value);
+            contentTextInput.value = selectedSection.textContent.trim();
+        };
+
+        // Update content textarea when a new section is selected
+        contentSelect.addEventListener('change', updateContentField);
+
+        // Initial display of content from research1
+        window.onload = updateContentField;
+
+        // Update the content of the selected section when "Save Changes" is clicked
+        saveButton.addEventListener('click', () => {
+            const selectedSection = document.getElementById(contentSelect.value);
+            selectedSection.textContent = contentTextInput.value; // Replace the content with the new text without affecting HTML structure
+
+            updateContentField(); // Update the text area with the new content
+        });
+
+        saveButton.addEventListener('click', () => {
+            const selectedSection = document.getElementById(contentSelect.value);
+            const updatedContent = contentTextInput.value;
+
+            const data = {
+                section: contentSelect.value,
+                content: updatedContent,
+                bgColor: bgColorInput.value,
+                textColor: textColorInput.value,
+            };
+
+            // Send the data to the server
+            fetch('http://localhost:3000/save-changes', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+                .then((response) => response.text())
+                .then((responseData) => {
+                    console.log('Success:', responseData);
+                    alert('Changes saved successfully!');
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+
+            // Update the content on the page without altering the structure
+            if (contentSelect.value === 'research1' || contentSelect.value === 'research2') {
+                const paragraphs = selectedSection.querySelectorAll('p');
+                if (paragraphs.length > 0) {
+                    paragraphs[0].textContent = updatedContent;
+                } else {
+                    selectedSection.textContent = updatedContent;
+                }
+            } else if (contentSelect.value === 'research3') {
+                const interestsArray = updatedContent.split('\n');
+                const ul = selectedSection.querySelector('ul');
+                ul.innerHTML = ''; // Clear existing list items
+                interestsArray.forEach((interest) => {
+                    const li = document.createElement('li');
+                    li.textContent = interest;
+                    ul.appendChild(li);
+                });
+            }
+        });
+
+
+        // JavaScript functionality for customizing the page
+        const bgColorInput = document.getElementById('bg-color');
+        const textColorInput = document.getElementById('text-color');
+        const displayPhoto = document.getElementById('display-photo');
+        const uploadPhotoInput = document.getElementById('upload-photo');
+        const removePhotoButton = document.getElementById('remove-photo');
+
+        // Change background color and text color of contentwrapper
+        bgColorInput.addEventListener('input', () => {
+            document.getElementById('contentwrapper').style.backgroundColor = bgColorInput.value;
+        });
+
+        textColorInput.addEventListener('input', () => {
+            document.getElementById('contentwrapper').style.color = textColorInput.value;
+            const listItems = document.querySelectorAll('#research3 li');
+            listItems.forEach((li) => {
+                li.style.color = textColorInput.value;
+            });
+        });
+
+        // Upload new photo
+        uploadPhotoInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    displayPhoto.src = e.target.result;
+                    displayPhoto.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Remove the photo when the button is clicked
+        removePhotoButton.addEventListener('click', () => {
+            displayPhoto.src = '';
+            displayPhoto.style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>

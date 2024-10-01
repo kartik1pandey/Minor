@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Background gradient with animated scroll effect */
+        body {
+            background: linear-gradient(135deg, #89f7fe, #66a6ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Login page container with 50% width */
+        .loginpage {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;  /* Takes up 50% of the screen width */
+            position: relative;
+        }
+
+        /* Box containing login form */
+        .login-box {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 100%; /* Takes up 100% of the loginpage width (i.e. 50% of screen) */
+            position: relative;
+            z-index: 1;
+        }
+
+        .login-box h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #333;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+        }
+
+        .login-box button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background 0.3s ease;
+        }
+
+        .login-box button:hover {
+            background-color: #45a049;
+        }
+
+        /* GSAP animation elements */
+        .animated-shape {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: move 8s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        /* Position animated shapes at different corners */
+        .shape1 {
+            top: 10%;
+            left: 5%;
+        }
+
+        .shape2 {
+            bottom: 15%;
+            right: 10%;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(50px, 50px);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        /* Custom Cursor Style */
+        .custom-cursor {
+            width: 30px;
+            height: 30px;
+            background-color: rgba(255, 105, 180, 0.6); /* Pinkish color */
+            border-radius: 50%;
+            position: absolute;
+            pointer-events: none;
+            transition: transform 0.1s ease;
+            z-index: 999;
+            backdrop-filter: blur(8px); /* Blurred effect */
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.6); /* Glow effect */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="loginpage" id="loginpage">
+        <!-- Animated Background Shapes -->
+        <div class="animated-shape shape1"></div>
+        <div class="animated-shape shape2"></div>
+
+        <!-- Login Box -->
+        <div class="container">
+            <div class="login-box">
+                <h2>User Login</h2>
+                <input type="email" placeholder="Email" id="email-admin">
+                <input type="password" placeholder="Password" id="password-admin">
+                <a href="view-page.html"><button id="view-page">Login</button></a>
+            </div>
+        </div>
+
+        <!-- Custom Cursor -->
+        <div class="custom-cursor" id="custom-cursor"></div>
+    </div>
+
+    <!-- GSAP and Scroll Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script>
+        // GSAP Animations for Login Box and Shapes
+        gsap.from(".login-box", { duration: 1.5, opacity: 0, y: -100, ease: "bounce" });
+        gsap.to(".shape1", { duration: 8, y: 50, x: 50, repeat: -1, yoyo: true, ease: "power1.inOut" });
+        gsap.to(".shape2", { duration: 6, y: -30, x: -30, repeat: -1, yoyo: true, ease: "power1.inOut" });
+
+        // Custom Cursor Movement
+        const cursor = document.getElementById("custom-cursor");
+        document.addEventListener("mousemove", (e) => {
+            cursor.style.left = (e.pageX - 15) + "px"; // Adjust to make it appear just below the real cursor
+            cursor.style.top = (e.pageY + 15) + "px"; 
+        });
+
+        // Button hover effect for cursor enlargement
+        const buttons = document.querySelectorAll("button");
+        buttons.forEach(button => {
+            button.addEventListener("mouseover", () => {
+                cursor.style.transform = "scale(1.5)";
+            });
+            button.addEventListener("mouseout", () => {
+                cursor.style.transform = "scale(1)";
+            });
+        });
+    </script>
+
+</body>
+
+</html>
